@@ -1,6 +1,7 @@
 package com.example.dvdrental.data.model;
 
 
+import com.introproventures.graphql.jpa.query.annotation.GraphQLIgnore;
 import io.hypersistence.utils.hibernate.type.array.ListArrayType;
 import io.hypersistence.utils.hibernate.type.basic.PostgreSQLEnumType;
 import io.hypersistence.utils.hibernate.type.search.PostgreSQLTSVectorType;
@@ -63,7 +64,7 @@ public class Film {
     private String fulltext;
 
 
-
+    @GraphQLIgnore
     @Enumerated(EnumType.STRING)
     @Column(name = "rating", columnDefinition = "mpaa_rating")
     @Type(PostgreSQLEnumType.class)
@@ -155,11 +156,12 @@ public class Film {
     public void setSpecialFeatures(List<String> specialFeatures) {
         this.specialFeatures = specialFeatures;
     }
-
+    @GraphQLIgnore
     public MpaaRating getRating() {
         return rating;
     }
 
+    @GraphQLIgnore
     public void setRating(MpaaRating rating) {
         this.rating = rating;
     }

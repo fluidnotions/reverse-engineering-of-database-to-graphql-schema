@@ -15,10 +15,13 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'com.introproventures:graphql-jpa-query-web:1.0.0'
 	implementation 'com.introproventures:graphql-jpa-query-schema:1.0.0'
-	runtimeOnly 'org.postgresql:postgresql'
+	implementation 'com.introproventures:graphql-jpa-query-annotations:1.0.0'
 	implementation 'io.hypersistence:hypersistence-utils-hibernate-62:3.4.1'
+	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
 tasks.named('test') {
