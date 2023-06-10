@@ -1,10 +1,15 @@
 package com.example.dvdrental.data.model;
 
 
+import io.hypersistence.utils.hibernate.type.array.ListArrayType;
+import io.hypersistence.utils.hibernate.type.basic.PostgreSQLEnumType;
+import io.hypersistence.utils.hibernate.type.search.PostgreSQLTSVectorType;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "film", schema = "public", indexes = {
@@ -44,6 +49,19 @@ public class Film {
 
     @Column(name = "last_update", nullable = false)
     private Instant lastUpdate;
+
+    @Type(ListArrayType.class)
+    @Column(name = "special_features", columnDefinition = "text[]")
+    private List<String> specialFeatures;
+
+    @Type(PostgreSQLTSVectorType.class)
+    @Column(name = "fulltext", columnDefinition = "tsvector not null")
+    private String fulltext;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "rating", columnDefinition = "mpaa_rating")
+    @Type(PostgreSQLEnumType.class)
+    private MpaaRating rating;
 
     public Integer getId() {
         return id;
@@ -125,22 +143,4 @@ public class Film {
         this.lastUpdate = lastUpdate;
     }
 
-/*
-    TODO [JPA Buddy] create field to map the 'rating' column
-     Available actions: Define target Java type | Uncomment as is | Remove column mapping
-    @Column(name = "rating", columnDefinition = "mpaa_rating")
-    private Object rating;
-*/
-/*
-    TODO [JPA Buddy] create field to map the 'special_features' column
-     Available actions: Define target Java type | Uncomment as is | Remove column mapping
-    @Column(name = "special_features", columnDefinition = "text[]")
-    private Object specialFeatures;
-*/
-/*
-    TODO [JPA Buddy] create field to map the 'fulltext' column
-     Available actions: Define target Java type | Uncomment as is | Remove column mapping
-    @Column(name = "fulltext", columnDefinition = "tsvector not null")
-    private Object fulltext;
-*/
 }

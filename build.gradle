@@ -18,7 +18,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'com.introproventures:graphql-jpa-query-schema:1.0.0'
 	runtimeOnly 'org.postgresql:postgresql'
-	implementation 'com.vladmihalcea:hibernate-types-52:3.0.1'
+	implementation 'io.hypersistence:hypersistence-utils-hibernate-62:3.4.1'
 }
 
 tasks.named('test') {
