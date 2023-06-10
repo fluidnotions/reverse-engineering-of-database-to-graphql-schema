@@ -22,9 +22,8 @@ It also provides inputs etc.
 
 ### graphql-jpa-query
 [graphql-jpa-query](https://github.com/introproventures/graphql-jpa-query) is a library that can create a GraphQL schema from jpa entities and repositories.
-I've implemented the controller from one of the provided packages, and it's possible to access the data via GraphQL queries using a client such as [Altair](https://altairgraphql.dev/)  
-and pointing it at the endpoint `http://localhost:8080/graphql`.  
-An advantage to this is that on adding a new entity to the db schema, the GraphQL schema is automatically updated.  
+I've implemented the controller from one of the provided packages, and it's possible to access the data via GraphQL queries using a client such as [Altair](https://altairgraphql.dev/) and pointing it at the endpoint `http://localhost:8080/graphql`.   
+An advantage to this is that on adding a new entity to the db schema, the GraphQL schema is automatically updated.     
 The github repository has hints of how to create mutations, and mentions support for subscriptions, but I haven't figured out how yet.
 
 ### hypersistence-utils
