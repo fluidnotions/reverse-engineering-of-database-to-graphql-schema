@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dvdrental
+    username: postgres
+    password: admin
+  jpa:
+    properties:
+      hibernate:
+        types:
+          print_banner: true
+          databaseZone: UTC
+          detectedDialect: POSTGRESQL
+          legacy_compatibility: true
+
