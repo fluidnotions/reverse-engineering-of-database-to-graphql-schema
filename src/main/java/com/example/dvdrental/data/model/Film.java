@@ -50,13 +50,19 @@ public class Film {
     @Column(name = "last_update", nullable = false)
     private Instant lastUpdate;
 
+
+
     @Type(ListArrayType.class)
     @Column(name = "special_features", columnDefinition = "text[]")
     private List<String> specialFeatures;
 
+
+
     @Type(PostgreSQLTSVectorType.class)
     @Column(name = "fulltext", columnDefinition = "tsvector not null")
     private String fulltext;
+
+
 
     @Enumerated(EnumType.STRING)
     @Column(name = "rating", columnDefinition = "mpaa_rating")
@@ -141,6 +147,29 @@ public class Film {
 
     public void setLastUpdate(Instant lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    public List<String> getSpecialFeatures() {
+        return specialFeatures;
+    }
+    public void setSpecialFeatures(List<String> specialFeatures) {
+        this.specialFeatures = specialFeatures;
+    }
+
+    public MpaaRating getRating() {
+        return rating;
+    }
+
+    public void setRating(MpaaRating rating) {
+        this.rating = rating;
+    }
+
+    public String getFulltext() {
+        return fulltext;
+    }
+
+    public void setFulltext(String fulltext) {
+        this.fulltext = fulltext;
     }
 
 }

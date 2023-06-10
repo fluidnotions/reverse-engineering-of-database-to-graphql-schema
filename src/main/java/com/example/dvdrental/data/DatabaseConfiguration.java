@@ -15,18 +15,18 @@ public class DatabaseConfiguration {
     @Autowired
     private EntityManager entityManager;
 
-//    @PostConstruct
-//    void generateSchema() {
-//        logger.info("generating GraphQL Schema");
-//        try{
-//            GraphQLJpaSchemaBuilder schemaBuilder = new GraphQLJpaSchemaBuilder(entityManager);
-//            var build = schemaBuilder.build();
-//            var def = build.getDefinition();
-//            logger.info("GraphQL Schema: {}", def.toString());
-//        }catch (Exception e){
-//            logger.error("Error while generating GraphQL Schema", e);
-//            e.printStackTrace();
-//        }
-//    }
+    @PostConstruct
+    void generateSchema() {
+        logger.info("generating GraphQL Schema");
+        try{
+            GraphQLJpaSchemaBuilder schemaBuilder = new GraphQLJpaSchemaBuilder(entityManager);
+            var build = schemaBuilder.build();
+            var def = build.getDefinition();
+            logger.info("GraphQL Schema: {}", def.toString());
+        }catch (Exception e){
+            logger.error("Error while generating GraphQL Schema", e);
+            e.printStackTrace();
+        }
+    }
 
 }
