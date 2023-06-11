@@ -19,6 +19,7 @@ dependencies {
 	implementation 'com.introproventures:graphql-jpa-query-schema:1.0.0'
 	implementation 'com.introproventures:graphql-jpa-query-annotations:1.0.0'
 	implementation 'io.hypersistence:hypersistence-utils-hibernate-62:3.4.1'
+	implementation 'org.projectlombok:lombok:1.18.26'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 

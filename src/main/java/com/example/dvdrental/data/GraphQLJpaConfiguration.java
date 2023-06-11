@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,6 +19,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Configuration
+@EnableJpaRepositories("com.example.dvdrental.data.repo")
 public class GraphQLJpaConfiguration {
     private static final Logger logger = LoggerFactory.getLogger(GraphQLJpaConfiguration.class);
     private GraphQLSchema graphQLSchema;
